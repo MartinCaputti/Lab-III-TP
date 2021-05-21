@@ -1,28 +1,26 @@
 "use strict"
 
+var boxNom = document.getElementById("boxUs");
+
 window.onload = function () {
 
-	var boxNom = document.getElementById("boxUs");
+	boxNom ;
 
 	boxNom.value = "EJ:Edward Nygma";
 	boxNom.style.color = "grey";	
 }
 
-
-document.getElementById("boxUs").onfocus  = function () {
-	var box = document.getElementById("boxUs");
-	box.value = "";
-	box.style.color ="black";
+boxNom.onfocus  = function () {
+	boxNom.value = "";
+	boxNom.style.color ="black";
 }
 
 //boton comenzar
 document.getElementById("butIn").onclick = function (){
 
-	var nombre = document.getElementById("boxUs");
 	var facs = document.getElementById("facs"); 
-
 	//Pido que ingresen un nombre
-	if(nombre.value =="" || nombre.value=="EJ:Edward Nygma"){
+	if(boxNom.value =="" || boxNom.value=="EJ:Edward Nygma"){
 		document.getElementById("nomError").innerHTML = "Forastero identificate!" + "<br/>" + "<br/>" ;
 		return false;
 	}else{
@@ -31,11 +29,8 @@ document.getElementById("butIn").onclick = function (){
 
 	//seleccionan el radio heroes
 	if(document.getElementById("rHeroes").checked) {
-  
-  	facs.innerHTML = "Candidato para la liga de la justicia"
-  	facs.style.color = "black";
-
-	
+	  	facs.innerHTML = "Candidato para la liga de la justicia"
+	  	facs.style.color = "black";
 	}//seleccionan el radio villanos 
 	else if(document.getElementById("rVillanos").checked) {
   		facs.innerHTML = "Nuevo recluta del Escuadron Suicida"
@@ -47,9 +42,8 @@ document.getElementById("butIn").onclick = function (){
 		return false
 	}
 
-
+	//Si completaron el nombre y eligieron el radio aparece el formulario 
 	document.getElementById("cuestionario").style.display="initial";
-
 }
 
 

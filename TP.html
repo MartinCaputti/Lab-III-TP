@@ -4,11 +4,12 @@
 		<meta charset="utf-8">
 		<title>Tp integrador </title>
 		<link rel="stylesheet" type="text/css" href="tp.css">
+		<script type="text/javascript" src="js/jquery-3.6.0.min.js"  ></script>
 	</head>
 	<body>
 		<h1>DC Super Trivia </h1>
 		<div id="sobreUs">
-			<p class="datosUs"><label>Nombre del participante : <input type="text" class= "boxy" id="boxUs" name="us" value="Ejemplo"  /></label> </p>
+			<p class="datosUs"><label>Nombre del participante : <input type="text" id="boxUs" name="us" value="EJ:Edward Nygma"  /></label> </p>
 			
 			<!--si no ingresan nombre-->
 			<div id="nomError"></div>
@@ -27,7 +28,7 @@
 		</div>
 
 		<div id="cuestionario">
-			<p>
+			<section class ="pagina">
 
 				<div class="pregunta"><p>¿Cual es el nombre del Comisionado del Departamento de Policía de Ciudad Gotica?</p> 
 					<img src="ComisionadoGotham.jpg"
@@ -90,6 +91,10 @@
 				</div>
 
 
+				
+			</section>
+
+			<section class="pagina">
 				<div class="pregunta"><p>Como obtuvo el Dr manhattan sus poderes?</p>
 					<img src="Watchmen.gif"
 				     alt="Foto del grupo conocido como watchmen"
@@ -157,12 +162,16 @@
 
 						<label><input type="checkbox" id="cbJT8" value="Hellboy">Hellboy</label>
 				</div>		
+				
 
+			</section>
+
+			<input type="button" value="Anterior" id="butAnt" name="butAnt"/>
 			<input type="button" value="Siguiente" id="butSig" name="butSig"/>
 			<input type="button" value="Finalizar" id="butFin" name="butFin"/>
 		</div>
 
-		<script  src="tp.js" type="text/javascript"></script>
+		<script  src="js/tp.js" type="text/javascript"></script>
 	</body>
 </html>
 

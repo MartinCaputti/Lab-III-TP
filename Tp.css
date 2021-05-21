@@ -4,15 +4,12 @@ body{
 	padding-left:10%;
 	padding-right:10%;
 	font-size: 22px;
-
 }
-
 
 h1{
 	font-size: 65px;
 	text-align: center;
 	text-shadow: 0px 0px 10px #6073bf;
-
 }
 
 input ,select, label {
@@ -23,6 +20,7 @@ input[type=text]{
 	border: none;
 	border-bottom: 2px solid black;
 	font-size: 22px;
+	color: grey;
 }
 
 input[type=text]:focus{
@@ -52,8 +50,6 @@ input[type=button]:hover{
 	color: red;
 	font-style: italic ;
 	font-size: 110%;
-
-
 }
 
 .datosUs{
@@ -74,12 +70,16 @@ input[type=button]:hover{
 
 .pregunta{
 	margin-bottom: 30px;
-
 }
 
 div#cuestionario{
 	font-size: 120%;
 	display:none;
+}
+
+.pagina{
+	display:none;
+
 }
 
 div#facs{
@@ -120,3 +120,5 @@ custom-select {
 	text-shadow: 0px 0px 3px #00ddff;
 
 }
+
+
