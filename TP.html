@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head >
+		<meta charset="utf-8">
+		<title>Tp integrador </title>
+		<link rel="stylesheet" type="text/css" href="tp.css">
+	</head>
+	<body>
+		<h1>DC Super Trivia </h1>
+		<div id="sobreUs">
+			<p class="datosUs"><label>Nombre del participante : <input type="text" class= "boxy" id="boxUs" name="us" value="Ejemplo"  /></label> </p>
+			
+			<!--si no ingresan nombre-->
+			<div id="nomError"></div>
+
+			<p class="datosUs">Elija su faccion: 
+			<input type="radio" id="rHeroes" name="gender" value="Heroes">
+			<label for="rHeroes">Heroes</label>
+			<input type="radio" id="rVillanos" name="gender" value="Villanos">
+			<label for="rVillanos">Villanos</label><br></p>
+			<p></p>
+
+			<!--si no seleccionan faccion-->
+			<div id="facs">			</div>		
+			
+			<input type="button" value="Comenzar" id="butIn" name="butIn"/>
+		</div>
+
+		<div id="cuestionario">
+			<p>
+
+				<div class="pregunta"><p>¿Cual es el nombre del Comisionado del Departamento de Policía de Ciudad Gotica?</p> 
+					<img src="ComisionadoGotham.jpg"
+				     alt="De oficial a Comisionado del departamento de Policia de ciudad Gotica"
+				     width="400"
+    				 height="600"
+				     title="Protagonista de la serie Gotham">
+					
+					<div class = "opciones">
+						<input type="radio" name="preg1" id="preg1JG" class="CG" value="James 'Jim' Gordon"/>
+						<label for="preg1JG">James 'Jim' Gordon </label>	
+						<input type="radio" name="preg1" id="preg1BA" class="CG" value="Barry Allen"/>
+						<label for="preg1BA">Barry Allen </label>
+						<input type="radio" name="preg1" id="preg1OC" class="CG" value="Oswald Cobblepot"/>
+						<label for="preg1OC">Oswald Cobblepot </label>	
+						<input type="radio" name="preg1" id="preg1AM" class="CG" value="Alex J. Murphy"/>
+						<label for="preg1AM">Alex J. Murphy</label>
+					</div>
+				</div>
+
+				<div class="pregunta"><p>¿En que ciudad vive Superman?</p> 
+					<img src="CiudadSuperman.jpg"
+					alt="La hermosa Ciudad de batman "
+					width="1200"
+    				height="600"
+				    title="Criado en una granja,luego se muda a la ciudad">
+
+					<div class="opciones">
+						<select name="preg2" class="pregS">
+							<option value="Manchester City">Manchester City</option>
+							<option value="Central City">Central City</option>
+							<option value="Castle Rock">Castle Rock</option>
+							<option value="King's Landing">King's Landing</option>
+							<option value="	Metrópolis">Metrópolis</option>
+							<option value="Narnia ">Narnia</option>
+							<option value="West Newberry">West Newberry</option>
+							<option value="Mónaco">Mónaco</option>
+							<option value="Ciudad Jardin">Ciudad Jardin</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="pregunta"><p>Quien es 'The Flash'?</p> 
+					<img src="TheFlash.gif"
+					alt="run .... run  "
+				    title="My nombre es ... y soy el hombre mas rapido">
+					<div class="opciones">
+						<label><input type="checkbox" id="cbJL1" value="Barry Allen"> Barry Allen</label>
+
+						<label><input type="checkbox" id="cbJL2" value="Pietro Maximoff"> Pietro Maximoff</label>
+
+						<label><input type="checkbox" id="cbJL3" value="Eobard Thawne"> Eobard Thawne</label><br>
+
+						<label><input type="checkbox" id="cbJL4" value="Jay Garrick"> Jay Garrick</label>
+
+						<label><input type="checkbox" id="cbJL5" value="Usain Bolt"> Usain Bolt</label>
+
+						<label><input type="checkbox" id="cbJL6" value="Dashiell Robert"> Dashiell Robert</label>
+					</div>
+				</div>
+
+
+				<div class="pregunta"><p>Como obtuvo el Dr manhattan sus poderes?</p>
+					<img src="Watchmen.gif"
+				     alt="Foto del grupo conocido como watchmen"
+				     title="La creacion mas peligrosa de la humanidad">
+					<div class = "opciones">
+						<input type="radio" name="preg1" id="pregW1" class="manhattan" value="Deseos"/>
+						<label for="preg1JG">Encontro la fuente de los deseos </label><br>	
+						<input type="radio" name="preg1" id="preg1BA" class="manhattan" value="genio"/>
+						<label for="preg1BA">Se lo otorgo un genio de una lampara</label><br>
+						<input type="radio" name="preg1" id="preg1OC" class="manhattan" value="accidente"/>
+						<label for="preg1OC">Accidente durante un experimento de física nuclear </label><br>	
+						<input type="radio" name="preg1" id="preg1AM" class="manhattan" value="entrenando"/>
+						<label for="preg1AM">Entrenando artes marciales</label>
+					</div>
+				</div>
+
+
+				<div class="pregunta"><p>Que significa la 'S' en el pecho de superman? </p>
+
+					<img src="SupermanLogo.jpg"
+					alt="Logo de superman"
+					width="1200"
+    				height="600"
+				    title="Un simbolo para todos">
+
+				    <div class="opciones">
+						<select name="preg2" class="pregS">
+							<option value="Supervivencia">Supervivencia</option>
+							<option value="Justicia">Justicia</option>
+							<option value="Seguridad">Seguridad</option>
+							<option value="Servicio">Servicio</option>
+							<option value="Sentido Comun">Sentido Comun</option>
+							<option value="Super">Super</option>
+							<option value="Sinceridad">Sinceridad</option>
+							<option value="Heroísmo">Heroísmo</option>
+							<option value="Esperanza">Esperanza</option>
+							<option value="Soldado">Soldado</option>
+
+						</select>
+					</div>
+				</div>		
+
+				<div class="pregunta"><p>Que personajes pertenecen al grupo 'Titanes/jovenes titanes'? </p>
+
+					<img src="Titans.jpg"
+					alt="Titanes netflix original"
+					width="1200"
+    				height="600"
+				    title="Un nuevo equipo de superheroes">
+
+					<div class="opciones">
+						<label><input type="checkbox" id="cbJT1" value="Starfire"> Starfire</label>
+
+						<label><input type="checkbox" id="cbJT2" value="Dredd"> Dredd</label>
+
+						<label><input type="checkbox" id="cbJT3" value="Chico Bestia"> Chico Bestia</label>
+
+						<label><input type="checkbox" id="cbJT4" value="Martian Manhunter"> Martian Manhunter</label><br>
+
+						<label><input type="checkbox" id="cbJT5" value="Raven"> Raven</label>
+
+						<label><input type="checkbox" id="cbJT6" value="Gambito"> Gambito </label>
+
+						<label><input type="checkbox" id="cbJT7" value="Ghost Rider">Ghost Rider </label>
+
+						<label><input type="checkbox" id="cbJT8" value="Hellboy">Hellboy</label>
+				</div>		
+
+			<input type="button" value="Siguiente" id="butSig" name="butSig"/>
+			<input type="button" value="Finalizar" id="butFin" name="butFin"/>
+		</div>
+
+		<script  src="tp.js" type="text/javascript"></script>
+	</body>
+</html>
+
+
+<!-- 
+
+
+				<div class="pregunta"><p>Sobre mujer maravilla </p>
+
+
+				</div>
+
+				<div class="pregunta"><p>Quien construyo a Cyborg  </p>
+
+				</div>
+
+				<div class="pregunta"><p>Sobre aquaman </p>
+
+				</div>
+
+
+
+				<div class="pregunta"><p>Sobre shazam </p>
+					que frase tiene que gritar 
+
+				</div>
+
+				<div class="pregunta"><p>Sobre Oliver queen </p>
+					isla ? 
+
+				</div>
+
+				<div class="pregunta"><p>Sobre bamtan </p>
+
+				</div>
+
+
+
+-->
+
+<!-- preguntas villanos 
+
+	cuantos linterna verde existen ? 
+					range 1 a + 1000? 
+
+dr frio por que ? 
+
+harley quinn 
+
+joker
+
+espantapajos 
+
+
+lex luthor 
+
+harvey dent 
+
+death stroke 
+
+black adam 
+
+reverse flash 
+
+swamp thing ? 
+
+siniestro 
+
+
+bane ? 
+
+brainiac 
+ras alghul 
+general zoD 
+enigma
+
+red hood 
+kiler croc
+chita 
+ares
+hiedra venenosa 
+solomon grudy 
+
+
+
+-->

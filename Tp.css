@@ -1,0 +1,122 @@
+body{ 
+	background-color: #fffff2;
+	text-align: left;
+	padding-left:10%;
+	padding-right:10%;
+	font-size: 22px;
+
+}
+
+
+h1{
+	font-size: 65px;
+	text-align: center;
+	text-shadow: 0px 0px 10px #6073bf;
+
+}
+
+input ,select, label {
+	cursor: pointer;
+}
+
+input[type=text]{
+	border: none;
+	border-bottom: 2px solid black;
+	font-size: 22px;
+}
+
+input[type=text]:focus{
+	background-color: lightblue;
+}
+
+input[type=button] {
+	background-color: #6073bf; 
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	font-size: 30px;
+	margin: 20px 10px 10px 0px;
+	transition-duration: 0.2s;
+}
+
+input[type=button]:hover{
+
+	background-color: white;
+	color:  #6073bf;
+	border: 2px solid #e8e8e8;
+
+}
+
+
+#nomError {
+	color: red;
+	font-style: italic ;
+	font-size: 110%;
+
+
+}
+
+.datosUs{
+	color:#222222;
+	font-weight: bold;
+}
+
+
+#rHeroes:checked + label ,#rHeroes + label:hover {
+  text-shadow: 0px 0px 3px #00CC00;
+
+}
+
+#rVillanos:checked + label , #rVillanos + label:hover {
+  text-shadow: 0px 0px 3px #DD0000;
+
+}
+
+.pregunta{
+	margin-bottom: 30px;
+
+}
+
+div#cuestionario{
+	font-size: 120%;
+	display:none;
+}
+
+div#facs{
+	text-shadow: 0 0 3px gold, 0 0 5px black;
+	font-weight: bold;
+}
+
+.opciones .CG + label:hover {
+	text-shadow: 0px 0px 3px #222222;
+}
+
+
+input[type="checkbox"]:checked{
+  box-shadow: 0 0 0 3px black;
+}
+
+
+custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.pregS{
+	font-size: 30px;
+	background-color:#FFEB00;
+	border: 3px solid blue;
+	color:#C80000;
+	align-self: center;
+	width: 100%;
+}
+
+.opciones .manhattan +label:hover{
+	text-shadow: 0px 0px 3px #00ddff;
+
+}
