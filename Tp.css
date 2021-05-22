@@ -4,12 +4,17 @@ body{
 	padding-left:10%;
 	padding-right:10%;
 	font-size: 22px;
+	font-family:  "Times New Roman", serif;
 }
 
 h1{
 	font-size: 65px;
 	text-align: center;
 	text-shadow: 0px 0px 10px #6073bf;
+}
+
+h2{
+	font-family: "Comic Sans MS","Comic Sans",serif;
 }
 
 input ,select, label {
@@ -58,15 +63,7 @@ input[type=button]:hover{
 }
 
 
-#rHeroes:checked + label ,#rHeroes + label:hover {
-  text-shadow: 0px 0px 3px #00CC00;
 
-}
-
-#rVillanos:checked + label , #rVillanos + label:hover {
-  text-shadow: 0px 0px 3px #DD0000;
-
-}
 
 .pregunta{
 	margin-bottom: 30px;
@@ -87,38 +84,57 @@ div#facs{
 	font-weight: bold;
 }
 
-.opciones .CG + label:hover {
+/* Estilos de radios */ 
+
+#rHeroes:checked + label ,#rHeroes + label:hover {
+  text-shadow: 0px 0px 3px #00CC00;
+}
+
+#rVillanos:checked + label , #rVillanos + label:hover {
+  text-shadow: 0px 0px 3px #DD0000;
+}
+
+
+.opciones .CG:checked +label ,.opciones .CG + label:hover {
 	text-shadow: 0px 0px 3px #222222;
 }
 
+.opciones .manhattan:checked +label ,.opciones .manhattan +label:hover{
+	text-shadow: 0px 0px 3px #00ddff;
+}
+
+.opciones .MujerMaravilla:checked +label ,.opciones .MujerMaravilla +label:hover{
+	color:#BFA135;
+	text-shadow: 0px 0px 6px #DE0405 , 0px 0px 1px black;
+}
+
+
+/*Estilos select */ 
+
+select{
+	margin-top: 10px;
+	font-size: 30px;
+	align-self: center;
+	width: 100%;
+
+
+}
+
+select.pregS{
+	background-color:#FFEB00;
+	border: 3px solid blue;
+	color:#C80000;
+}
+
+
+#pregCyborg select{
+	background-color:#1c1b1b;
+	border: 3px solid #C90000;
+	color:#C90000;
+}
+
+/*Estilo CheckBox*/
 
 input[type="checkbox"]:checked{
   box-shadow: 0 0 0 3px black;
 }
-
-
-custom-select {
-  position: relative;
-  font-family: Arial;
-}
-
-custom-select {
-  position: relative;
-  font-family: Arial;
-}
-
-.pregS{
-	font-size: 30px;
-	background-color:#FFEB00;
-	border: 3px solid blue;
-	color:#C80000;
-	align-self: center;
-	width: 100%;
-}
-
-.opciones .manhattan +label:hover{
-	text-shadow: 0px 0px 3px #00ddff;
-
-}
-
-
