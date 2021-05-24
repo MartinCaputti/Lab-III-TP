@@ -1,4 +1,3 @@
-CUMPLE CON EL VALIDATOR
 <!DOCTYPE html>
 <html lang="es">
 	<head >
@@ -15,6 +14,8 @@ CUMPLE CON EL VALIDATOR
 			<!--si no ingresan nombre-->
 			<div id="nomError"></div>
 
+
+<!--
 			<p class="datosUs">Elija su faccion: 
 			<input type="radio" id="rHeroes" name="gender" value="Heroes">
 			<label for="rHeroes">Heroes</label>
@@ -22,15 +23,13 @@ CUMPLE CON EL VALIDATOR
 			<label for="rVillanos">Villanos</label><br></p>
 			<p></p>
 
-			<!--si no seleccionan faccion-->
+			<!- -si no seleccionan faccion- ->
 			<div id="facs">			</div>		
-			
+			-->
 			<input type="button" value="Comenzar" id="butIn" name="butIn"/>
 		</div>
 
-		<div id="cuestionario">
-
-			
+		<div id="cuestionario">		
 			<section class ="pagina">
 				<h2>Pagina 1</h2>
 				<div class="pregunta"><p>¿Cual es el nombre del Comisionado del Departamento de Policía de Ciudad Gotica?</p> 
@@ -41,14 +40,22 @@ CUMPLE CON EL VALIDATOR
 				     title="Protagonista de la serie Gotham">
 					
 					<div class = "opciones">
-						<input type="radio" name="preg1" id="preg1JG" class="CG" value="James 'Jim' Gordon"/>
-						<label for="preg1JG">James 'Jim' Gordon </label>	
-						<input type="radio" name="preg1" id="preg1BA" class="CG" value="Barry Allen"/>
-						<label for="preg1BA">Barry Allen </label>
-						<input type="radio" name="preg1" id="preg1OC" class="CG" value="Oswald Cobblepot"/>
-						<label for="preg1OC">Oswald Cobblepot </label>	
-						<input type="radio" name="preg1" id="preg1AM" class="CG" value="Alex J. Murphy"/>
-						<label for="preg1AM">Alex J. Murphy</label>
+						<div>
+							<input type="radio" name="preg1" id="preg1JG" class="CG" value="James 'Jim' Gordon"/>
+							<label for="preg1JG">James 'Jim' Gordon </label> 
+						</div>	
+						<div>
+							<input type="radio" name="preg1" id="preg1BA" class="CG" value="Barry Allen"/>
+							<label for="preg1BA">Barry Allen </label>
+						</div>
+						<div>
+							<input type="radio" name="preg1" id="preg1OC" class="CG" value="Oswald Cobblepot"/>
+							<label for="preg1OC">Oswald Cobblepot </label>	
+						</div>
+						<div>
+							<input type="radio" name="preg1" id="preg1AM" class="CG" value="Alex J. Murphy"/>
+							<label for="preg1AM">Alex J. Murphy</label>
+						</div>
 					</div>
 				</div>
 
@@ -65,7 +72,7 @@ CUMPLE CON EL VALIDATOR
 							<option value="Central City">Central City</option>
 							<option value="Castle Rock">Castle Rock</option>
 							<option value="King's Landing">King's Landing</option>
-							<option value="Metrópolis">Metrópolis</option>
+							<option value="Metrópolis" >Metrópolis</option>
 							<option value="Narnia ">Narnia</option>
 							<option value="West Newberry">West Newberry</option>
 							<option value="Mónaco">Mónaco</option>
@@ -102,14 +109,22 @@ CUMPLE CON EL VALIDATOR
 				     alt="Foto del grupo conocido como watchmen"
 				     title="La creacion mas peligrosa de la humanidad">
 					<div class = "opciones">
-						<input type="radio" name="pregDM" id="pregDM1" class="manhattan" value="Deseos"/>
-						<label for="pregDM1">Encontro la fuente de los deseos </label><br>	
-						<input type="radio" name="pregDM" id="pregDM2" class="manhattan" value="genio"/>
-						<label for="pregDM2">Se lo otorgo un genio de una lampara</label><br>
-						<input type="radio" name="pregDM" id="pregDM3" class="manhattan" value="accidente"/>
-						<label for="pregDM3">Accidente durante un experimento de física nuclear </label><br>	
-						<input type="radio" name="pregDM" id="pregDM4" class="manhattan" value="entrenando"/>
-						<label for="pregDM4">Entrenando artes marciales</label>
+						<div>
+							<input type="radio" name="pregDM" id="pregDM1" class="manhattan" value="Deseos"/>
+							<label for="pregDM1">Encontro la fuente de los deseos </label>
+						</div>
+						<div>
+							<input type="radio" name="pregDM" id="pregDM2" class="manhattan" value="genio"/>
+							<label for="pregDM2">Se lo otorgo un genio de una lampara</label>
+						</div>
+						<div>
+							<input type="radio" name="pregDM" id="pregDM3" class="manhattan" value="accidente"/>
+							<label for="pregDM3">Accidente durante un experimento de física nuclear </label>	
+						</div>
+						<div>
+							<input type="radio" name="pregDM" id="pregDM4" class="manhattan" value="entrenando"/>
+							<label for="pregDM4">Entrenando artes marciales</label>
+						</div>
 					</div>
 				</div>
 
@@ -154,7 +169,7 @@ CUMPLE CON EL VALIDATOR
 
 						<label><input type="checkbox" id="cbJT3" value="Chico Bestia"> Chico Bestia</label>
 
-						<label><input type="checkbox" id="cbJT4" value="Martian Manhunter"> Martian Manhunter</label><br>
+						<label><input type="checkbox" id="cbJT4" value="Martian Manhunter"> Martian Manhunter</label>
 
 						<label><input type="checkbox" id="cbJT5" value="Raven"> Raven</label>
 
@@ -174,14 +189,22 @@ CUMPLE CON EL VALIDATOR
 					alt="Themyscira "
 				    title="Tribu de todas mujeres guerreras">
 					<div class = "opciones">
+						<div>
 						<input type="radio" name="pregMM" id="pregMM1" class="MujerMaravilla" value="Arpias"/>
-						<label for="pregMM1">Las Arpias </label><br>	
+						<label for="pregMM1">Las Arpias </label>	
+						</div>
+						<div>
 						<input type="radio" name="pregMM" id="pregMM2" class="MujerMaravilla" value="AvesPresa"/>
-						<label for="pregMM2">Las aves de presa</label><br>
+						<label for="pregMM2">Las aves de presa</label>
+						</div>
+						<div>
 						<input type="radio" name="pregMM" id="pregMM3" class="MujerMaravilla" value="Amazonas"/>
-						<label for="pregMM3">Las Amazonas </label><br>	
+						<label for="pregMM3">Las Amazonas </label>	
+						</div>
+						<div>
 						<input type="radio" name="pregMM" id="pregMM4" class="MujerMaravilla" value="FFApololips"/>
 						<label for="pregMM4">Las Furias Femeninas de Apokolips</label>
+						</div>
 					</div>
 				</div>
 
@@ -205,45 +228,118 @@ CUMPLE CON EL VALIDATOR
 					</div>
 				</div>
 
-				<div class="pregunta"><p>Que personajes pertenecen al grupo 'Titanes/jovenes titanes'? </p>
+				<div class="pregunta"><p>¿Quienes forman parte del grupo conocido como "Escuadron Suicida" ? </p>
 
-					<img src="imagenes/Titans.jpg"
-					alt="Titanes netflix original"
-					width="1200"
-    				height="600"
-				    title="Un nuevo equipo de superheroes">
+					<img src="imagenes/SuicideSquad.jpg"
+					alt="Sucide Squad Logo "
+				    title="Villanos encarcelados que realizan misiones secretas a cambio de penas de prisión reducidas">
 
 					<div class="opciones">
-						<label><input type="checkbox" id="cbJT1" value="Starfire"> Starfire</label>
+						<label><input type="checkbox" id="cbES1" value="El Diablo"> El Diablo</label>
 
-						<label><input type="checkbox" id="cbJT2" value="Dredd"> Dredd</label>
+						<label><input type="checkbox" id="cbES2" value="Ultron">Ultron</label>
 
-						<label><input type="checkbox" id="cbJT3" value="Chico Bestia"> Chico Bestia</label>
+						<label><input type="checkbox" id="cbES3" value="Sergio Ramos">Sergio Ramos</label>
 
-						<label><input type="checkbox" id="cbJT4" value="Martian Manhunter"> Martian Manhunter</label><br>
+						<label><input type="checkbox" id="cbES4" value="Michael Myers">Michael Myers</label>
 
-						<label><input type="checkbox" id="cbJT5" value="Raven"> Raven</label>
+						<label><input type="checkbox" id="cbES5" value="T-1000">T-1000</label>
 
-						<label><input type="checkbox" id="cbJT6" value="Gambito"> Gambito </label>
+						<label><input type="checkbox" id="cbES6" value="Harley Quinn"> Harley Quinn </label>
 
-						<label><input type="checkbox" id="cbJT7" value="Ghost Rider">Ghost Rider </label>
+						<label><input type="checkbox" id="cbES7" value="Dexter Morgan">Dexter Morgan</label>
 
-						<label><input type="checkbox" id="cbJT8" value="Hellboy">Hellboy</label>
+						<label><input type="checkbox" id="cbES8" value="Deadshot">Deadshot</label>
 					</div>
 				</div>				
-
-
-
-
-
 			</section>
+
 
 			<section class="pagina">
 				<h2>Pagina 4</h2>
+				<div class="pregunta"><p>¿De que trabajaba Harleen Quinzel?</p>
+					<img src="imagenes/HarleyQuinn.jpg"
+					alt="Harley Quinn "
+				    title="Debe ser estresante trabajar en Arkham">
+					<div class = "opciones">
+						<div>
+						<input type="radio" name="pregHQ" id="pregHQ1" class="Harley" value="Abogada"/>
+						<label for="pregHQ1">Abogada</label>	
+						</div>
+						<div>
+						<input type="radio" name="pregHQ" id="pregHQ2" class="Harley" value="Agente Secreta"/>
+						<label for="pregHQ2">Agente Secreta</label>
+						</div>
+						<div>
+						<input type="radio" name="pregHQ" id="pregHQ3" class="Harley" value="En un local de comida rapida"/>
+						<label for="pregHQ3">En un local de comida rapida</label>	
+						</div>
+						<div>
+						<input type="radio" name="pregHQ" id="pregHQ4" class="Harley" value="Psiquiatra"/>
+						<label for="pregHQ4">Psiquiatra</label>
+						</div>
+					</div>
+				</div>
 
-				<p id="puntuacion">NOTA FINAL</p>
+				<div class="pregunta" id="pregMrFreeze"><p>Cual es el objetivo del  Dr. Frio Victor Fries? </p>
+					<img src="imagenes/DrFrio.jpg"
+					alt="Mr. Freeze Victor Fries"
+				    title="Congelado por fuera ,roto por dentro">
+
+				    <div class="opciones" >
+						<select id="victorFries" >
+							<option value="Terminar con el verano">Terminar con el verano</option>
+							<option value="Viajar en el SnowPiercer">Viajar en el SnowPiercer</option>
+							<option value="Volver a Rusia">Volver a Rusia</option>
+							<option value="Vengar a su hermano asesinado">Vengar a su hermano asesinado</option>
+							<option value="Liderar a los Caminantes Blancos">Liderar a los Caminantes Blancos</option>
+							<option value="Hacerse rico congelando todo">Hacerse rico congelando todo</option>
+							<option value="Salvar a su esposa">Salvar a su esposa</option>
+							<option value="Quedar solo en el mundo">Quedar solo en el mundo</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="pregunta"><p>¿Que villanos suelen aterrorizar ciudad Gotica? </p>
+
+					<img src="imagenes/villanos.png"
+					alt="Enemigos de batman "
+				    title="Una ciudad demasiado peligrosa ">
+
+					<div class="opciones">
+						<label><input type="checkbox" class="villanosG" id="cbVG1" value="Bane">Bane</label>
+
+						<label><input type="checkbox" class="villanosG" id="cbVG2" value="El Espantapájaros">El Espantapájaros</label>
+
+						<label><input type="checkbox" class="villanosG" id="cbVG3" value="El Guason">El Guason</label>
+
+						<label><input type="checkbox" class="villanosG" id="cbVG4" value="El pinguino">El pinguino</label>
+
+						<label><input type="checkbox" class="villanosG" id="cbVG5" value="Dos Caras">Dos Caras</label><br>
+
+						<label><input type="checkbox" class="villanosG" id="cbVG6" value="Hiedra Venenosa">Hiedra Venenosa</label>
+
+						<label><input type="checkbox" class="villanosG" id="cbVG7" value="Death Stroke">Death Stroke</label>
+						
+						<label><input type="checkbox" class="villanosG" id="cbVG8" value="El Acertijo">El Acertijo</label>
+						
+						<label><input type="checkbox" class="villanosG" id="cbVG9" value="Ra's al Ghul">Ra's al Ghul</label>
+						
+						<label><input type="checkbox" class="villanosG" id="cbVG10" value="Gatúbela ">Gatúbela </label>
+												
+
+					</div>
+				</div>				
 			</section>
 
+			<section class="pagina">
+				<h2>Puntuacion</h2>
+				<img src="imagenes/Riddler.jpg"
+					alt="?????"
+				    title="??????">
+
+				<p id="puntuacion">Desea Finalizar ? aun puede revisar sus respuestas </p>
+			</section>
 
 			<input type="button" value="Anterior" id="butAnt" name="butAnt"/>
 			<input type="button" value="Siguiente" id="butSig" name="butSig"/>
@@ -255,75 +351,3 @@ CUMPLE CON EL VALIDATOR
 </html>
 
 
-<!-- 
-
-				<div class="pregunta"><p>Sobre aquaman </p>
-
-				</div>
-
-
-
-				<div class="pregunta"><p>Sobre shazam </p>
-					que frase tiene que gritar 
-
-				</div>
-
-				<div class="pregunta"><p>Sobre Oliver queen </p>
-					isla ? 
-
-				</div>
-
-				<div class="pregunta"><p>Sobre bamtan </p>
-
-				</div>
-
-
-
--->
-
-<!-- preguntas villanos 
-
-	cuantos linterna verde existen ? 
-					range 1 a + 1000? 
-
-dr frio por que ? 
-
-harley quinn 
-
-joker
-
-espantapajos 
-
-
-lex luthor 
-
-harvey dent 
-
-death stroke 
-
-black adam 
-
-reverse flash 
-
-swamp thing ? 
-
-siniestro 
-
-
-bane ? 
-
-brainiac 
-ras alghul 
-general zoD 
-enigma
-
-red hood 
-kiler croc
-chita 
-ares
-hiedra venenosa 
-solomon grudy 
-
-
-
--->
