@@ -13,7 +13,7 @@ var arrayPaginas = document.getElementsByClassName("pagina");
 //Recibe la pagina actual y un numero que indica cuanto quiero desplazarme 
 function mostrarPagina(numeroDeLaPagina,num){
 	//Oculto la pagina actual 
-  	arrayPaginas[numeroDeLaPagina].style.display = "none";
+  	arrayPaginas[pagina].style.display = "none";
   	//Sumo (o resto si es negativo) la  pagina en la que estoy 
   	numeroDeLaPagina = numeroDeLaPagina + (num) ;
   	//Muestro la nueva pagina actual  
@@ -23,6 +23,30 @@ function mostrarPagina(numeroDeLaPagina,num){
   	//Devuelvo el nuevo valor del numero de pagina 
   	return numeroDeLaPagina;
 }
+
+//Funcion para la visibilidad de los botones Anterior y siguiente 
+function botAntSig(){
+
+	//Si es alguno de los botones de el medio , se muestran ambos
+	if(pagina>0 && pagina< arrayPaginas.length){
+		$("#butAnt").show();
+		$("#butSig").show();
+	}
+
+	//Si es la primer pagina , se oculta el boton anterior y se muestra el siguiente
+	if(pagina==0){
+	 		$("#butAnt").hide();
+	 		$("#butSig").show();
+	}
+
+	//Si es la ultima , se oculta el boton siguiente y se muestra el anterior
+	if(pagina== arrayPaginas.length-1){
+	 		$("#butSig").hide();
+	 		$("#butAnt").show();
+	}
+}
+
+
 
 //cree un par de funciones para no repetir codigo al finalizar 
 
@@ -44,11 +68,12 @@ function paraSelect(id,posicion){
 	if(id.selectedIndex == posicion){
 		puntuacion++;
 		id.style.backgroundColor = "#99ff82";
-		//sino , color rojo
+		id.options[posicion].style.color = "blue"; 
+		//sino , color rojo para la respuesta correcta 
 	}else{
-		id.style.backgroundColor = "#ff8282";
-	}
-	 
+		//id.style.backgroundColor = "#ff8282";
+		id.options[posicion].style.backgroundColor = "#ff8282"; 
+	} 
 }
 
 
@@ -74,29 +99,36 @@ $("#butIn").click(function(){
 		$("#nomError").html("");
 	}
 
-/*
-	//y tienen que elegir un radio para elegir un cuestionario 
-	var facs = document.getElementById("facs");
-	if(document.getElementById("rHeroes").checked) {
-	  	$("#facs").html("Candidato para la liga de la justicia");
-		$("#facs").css({"color":"black"});
-	}//seleccionan el radio villanos 
-	else if(document.getElementById("rVillanos").checked) {
-  		$("#facs").html("Nuevo recluta del Escuadron Suicida");
-		$("#facs").css({"color":"black"});
-  	//Si no seleccionan ningun radio 
-	}else if( !(document.getElementById("rVillanos")).checked && !(document.getElementById("rHeroes").checked)  ) {
-		$("#facs").html("Es peligroso enfrentar este mundo solo ,por favor elige una faccion");
-		$("#facs").css({"color":"red"});
-		return false;
-	}
-*/
-
-
-	//Si completaron el nombre y eligieron el radio aparece el formulario 
+	//Si completaron el nombre 
 	$("#cuestionario").show();
+	$("footer").show();
 	//En la primer pagina
 	mostrarPagina(pagina,0);
+	botAntSig();
+});
+
+
+$("#butUno").click(function(){
+	pagina = mostrarPagina (0,0);
+	//$("#butAnt").hide();
+	botAntSig();
+});
+
+$("#butDos").click(function(){
+	pagina = mostrarPagina (1,0);	
+	botAntSig();
+});
+
+$("#butTres").click(function(){
+	pagina = mostrarPagina (2,0);
+	$("#butAnt").hide();
+	botAntSig();
+});
+
+$("#butCuatro").click(function(){
+	pagina = mostrarPagina (3,0);
+	$("#butAnt").hide();
+	botAntSig();
 });
 
 
@@ -105,13 +137,14 @@ $("#butSig").click(function(){
 	if(pagina < arrayPaginas.length-1){
 		pagina=  mostrarPagina(pagina,1);		
 	}
-
+	botAntSig();
 });
 
 $("#butAnt").click(function(){
 	if(pagina > 0){
 		pagina = mostrarPagina(pagina,-1);
-	}	
+	}
+	botAntSig();	
 });
 
 var puntuacion = 0;
@@ -127,8 +160,9 @@ $("#butFin").click(function(){
 	//Agrego un mensaje segun la puntuacion 
 	var msj ="";
 
-	arrayPaginas[pagina].style.display = "none";
+	//arrayPaginas[pagina].style.display = "none";
 	pagina = mostrarPagina(4,0);
+	botAntSig();
 
 	//Checkeo en cada pregunta si contesto bien se suma un punto y se colorea en verde
 	//Sino se marca en rojo.
@@ -137,6 +171,7 @@ $("#butFin").click(function(){
 	//if(document.getElementById("preg1JG").checked){
 	paraRadio($("#preg1JG"));
 	paraSelect(document.getElementById("SuperCiudad"),"4");
+	//$("#metro").css("background", "#99ff82");
 
 	//Es un if mas grande porque para que este bien la respuesta tiene que seleccionar varias respuestas correctas en simultaneo 
 	if(document.getElementById("cbJL1").checked && document.getElementById("cbJL4").checked){
@@ -150,6 +185,7 @@ $("#butFin").click(function(){
 
 	paraRadio($("#pregDM3"));	
 	paraSelect(document.getElementById("superLogo"),"8");
+
 
 	if(document.getElementById("cbJT1").checked && document.getElementById("cbJT3").checked && document.getElementById("cbJT5").checked){
 		puntuacion++;
@@ -210,13 +246,7 @@ $("#butFin").click(function(){
 		$("#cbVG8").parent().css( "background", "#ff8282" );
 		$("#cbVG9").parent().css( "background", "#ff8282" );
 		$("#cbVG10").parent().css( "background", "#ff8282" );
-	
 	}
-
-
-
-
-
 
 
 	//Luego de saber la puntuacion total defino el msj 
@@ -228,5 +258,13 @@ $("#butFin").click(function(){
 
 	//Y lo muestro en la pagina 
 	$("#puntuacion").html("Contesto bien " + puntuacion+" de " + arrayPreguntas.length +" preguntas <br> " + msj);
+	
 
 });
+
+
+//CAmbiar "finalizar" por "puntuacion"
+
+//Agregar tres preguntas mas 
+
+//Unir con radios

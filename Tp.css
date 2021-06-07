@@ -1,8 +1,8 @@
 body{ 
 	background-color: #fffff2;
 	text-align: left;
-	padding-left:15%;
-	padding-right:15%;
+	padding-left:16%;
+	padding-right:16%;
 	font-size: 22px;
 	font-family:  "Times New Roman", serif;
 }
@@ -13,7 +13,7 @@ h1{
 	text-shadow: 0px 0px 10px #6073bf;
 }
 
-h2{
+h2 , #puntuacion{
 	font-family: "Comic Sans MS","Comic Sans",serif;
 }
 
@@ -43,11 +43,9 @@ input[type=button] {
 }
 
 input[type=button]:hover{
-
 	background-color: white;
 	color:  #6073bf;
 	border: 2px solid #e8e8e8;
-
 }
 
 
@@ -63,23 +61,28 @@ input[type=button]:hover{
 }
 
 img{
-
-	max-width: 100%
+	max-width: 100%;
+	max-height: 650px;
+	margin-bottom: 10px;
 }
 
 
 .pregunta{
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 }
 
-div#cuestionario{
+.pregunta p{
+	font-weight: bolder;
+}
+
+div#cuestionario , footer {
 	font-size: 120%;
 	display:none;
 }
 
+
 .pagina{
 	display:none;
-
 }
 
 
@@ -125,8 +128,6 @@ select{
 	font-size: 30px;
 	align-self: center;
 	width: 100%;
-
-
 }
 
 select.pregS{
@@ -146,7 +147,6 @@ select.pregS{
 	background-color:	#eeeeee;
 	border: 3px solid #81a4d4;
 	color:	#0d56ba;
-
 }
 
 /*Estilo CheckBox*/

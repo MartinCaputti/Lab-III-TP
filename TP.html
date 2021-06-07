@@ -2,7 +2,8 @@
 <html lang="es">
 	<head >
 		<meta charset="utf-8">
-		<title>Tp integrador </title>
+		<title>Cuestionario DC </title>
+		<link rel="icon" type="image/png" href="imagenes/DC.ico" />
 		<link rel="stylesheet" type="text/css" href="tp.css">
 		<script  src="js/jquery-3.6.0.min.js"  ></script>
 	</head>
@@ -14,65 +15,49 @@
 			<!--si no ingresan nombre-->
 			<div id="nomError"></div>
 
-
-<!--
-			<p class="datosUs">Elija su faccion: 
-			<input type="radio" id="rHeroes" name="gender" value="Heroes">
-			<label for="rHeroes">Heroes</label>
-			<input type="radio" id="rVillanos" name="gender" value="Villanos">
-			<label for="rVillanos">Villanos</label><br></p>
-			<p></p>
-
-			<!- -si no seleccionan faccion- ->
-			<div id="facs">			</div>		
-			-->
-			<input type="button" value="Comenzar" id="butIn" name="butIn"/>
+			<input type="button" value="Comenzar" id="butIn"/>
 		</div>
 
 		<div id="cuestionario">		
 			<section class ="pagina">
 				<h2>Pagina 1</h2>
 				<div class="pregunta"><p>¿Cual es el nombre del Comisionado del Departamento de Policía de Ciudad Gotica?</p> 
-					<img src="imagenes/ComisionadoGotham.jpg"
+					<img src="imagenes/ComisionadoGotham2.jpg"
 				     alt="De oficial a Comisionado del departamento de Policia de ciudad Gotica"
-				     width="400"
-    				 height="600"
 				     title="Protagonista de la serie Gotham">
 					
 					<div class = "opciones">
 						<div>
-							<input type="radio" name="preg1" id="preg1JG" class="CG" value="James 'Jim' Gordon"/>
+							<input type="radio"  id="preg1JG" class="CG" value="James 'Jim' Gordon"/>
 							<label for="preg1JG">James 'Jim' Gordon </label> 
 						</div>	
 						<div>
-							<input type="radio" name="preg1" id="preg1BA" class="CG" value="Barry Allen"/>
+							<input type="radio"  id="preg1BA" class="CG" value="Barry Allen"/>
 							<label for="preg1BA">Barry Allen </label>
 						</div>
 						<div>
-							<input type="radio" name="preg1" id="preg1OC" class="CG" value="Oswald Cobblepot"/>
+							<input type="radio"  id="preg1OC" class="CG" value="Oswald Cobblepot"/>
 							<label for="preg1OC">Oswald Cobblepot </label>	
 						</div>
 						<div>
-							<input type="radio" name="preg1" id="preg1AM" class="CG" value="Alex J. Murphy"/>
+							<input type="radio"  id="preg1AM" class="CG" value="Alex J. Murphy"/>
 							<label for="preg1AM">Alex J. Murphy</label>
 						</div>
 					</div>
 				</div>
 
 				<div class="pregunta"><p>¿En que ciudad vive Superman?</p> 
-					<img src="imagenes/CiudadSuperman.jpg"
+					<img src="imagenes/CiudadSuperman2.jpg"
 					alt="La hermosa Ciudad de batman "
-					width="1200"
-    				height="600"
 				    title="Criado en una granja,luego se muda a la ciudad">
 
 					<div class="opciones">
-						<select name="preg2" class="pregS" id="SuperCiudad">
+						<select  class="pregS" id="SuperCiudad">
 							<option value="Manchester City">Manchester City</option>
 							<option value="Central City">Central City</option>
 							<option value="Castle Rock">Castle Rock</option>
 							<option value="King's Landing">King's Landing</option>
-							<option value="Metrópolis" >Metrópolis</option>
+							<option id="metro" value="Metrópolis" >Metrópolis</option>
 							<option value="Narnia ">Narnia</option>
 							<option value="West Newberry">West Newberry</option>
 							<option value="Mónaco">Mónaco</option>
@@ -81,7 +66,7 @@
 					</div>
 				</div>
 
-				<div class="pregunta"><p>Quien es 'The Flash'?</p> 
+				<div class="pregunta"><p>¿Quien es 'The Flash'?</p> 
 					<img src="imagenes/TheFlash.gif"
 					alt="run .... run  "
 				    title="My nombre es ... y soy el hombre mas rapido">
@@ -104,8 +89,8 @@
 			
 			<section class="pagina">
 				<h2>Pagina 2</h2>
-				<div class="pregunta"><p>Como obtuvo el Dr manhattan sus poderes?</p>
-					<img src="imagenes/Watchmen.gif"
+				<div class="pregunta"><p>¿Como obtuvo el Dr manhattan sus poderes?</p>
+					<img src="imagenes/Watchmen2.jpg"
 				     alt="Foto del grupo conocido como watchmen"
 				     title="La creacion mas peligrosa de la humanidad">
 					<div class = "opciones">
@@ -129,12 +114,10 @@
 				</div>
 
 
-				<div class="pregunta"><p>Que significa la 'S' en el pecho de superman? </p>
+				<div class="pregunta"><p>¿Que significa la 'S' en el pecho de superman? </p>
 
-					<img src="imagenes/SupermanLogo.jpg"
+					<img src="imagenes/SupermanLogo2.jpg"
 					alt="Logo de superman"
-					width="1200"
-    				height="600"
 				    title="Un simbolo para todos">
 
 				    <div class="opciones">
@@ -154,12 +137,10 @@
 					</div>
 				</div>		
 
-				<div class="pregunta"><p>Que personajes pertenecen al grupo 'Titanes/jovenes titanes'? </p>
+				<div class="pregunta"><p>¿Que personajes pertenecen al grupo 'Titanes/jovenes titanes'? </p>
 
 					<img src="imagenes/Titans.jpg"
 					alt="Titanes netflix original"
-					width="1200"
-    				height="600"
 				    title="Un nuevo equipo de superheroes">
 
 					<div class="opciones">
@@ -230,7 +211,7 @@
 
 				<div class="pregunta"><p>¿Quienes forman parte del grupo conocido como "Escuadron Suicida" ? </p>
 
-					<img src="imagenes/SuicideSquad.jpg"
+					<img src="imagenes/SuicideSquad2.jpg"
 					alt="Sucide Squad Logo "
 				    title="Villanos encarcelados que realizan misiones secretas a cambio de penas de prisión reducidas">
 
@@ -281,7 +262,7 @@
 					</div>
 				</div>
 
-				<div class="pregunta" id="pregMrFreeze"><p>Cual es el objetivo del  Dr. Frio Victor Fries? </p>
+				<div class="pregunta" id="pregMrFreeze"><p>¿Cual es el objetivo del Dr. Frio Victor Fries? </p>
 					<img src="imagenes/DrFrio.jpg"
 					alt="Mr. Freeze Victor Fries"
 				    title="Congelado por fuera ,roto por dentro">
@@ -302,7 +283,7 @@
 
 				<div class="pregunta"><p>¿Que villanos suelen aterrorizar ciudad Gotica? </p>
 
-					<img src="imagenes/villanos.png"
+					<img src="imagenes/villanos.jpg"
 					alt="Enemigos de batman "
 				    title="Una ciudad demasiado peligrosa ">
 
@@ -341,13 +322,24 @@
 				<p id="puntuacion">Desea Finalizar ? aun puede revisar sus respuestas </p>
 			</section>
 
-			<input type="button" value="Anterior" id="butAnt" name="butAnt"/>
-			<input type="button" value="Siguiente" id="butSig" name="butSig"/>
-			<input type="button" value="Finalizar" id="butFin" name="butFin"/>
+			<input type="button" value="Anterior" id="butAnt" />
+			<input type="button" value="1" id="butUno" />
+			<input type="button" value="2" id="butDos" />
+			<input type="button" value="3" id="butTres" />
+			<input type="button" value="4" id="butCuatro" />
+			<!--<input type="button" value="5" id="butCinco" >-->
+
+			<input type="button" value="Siguiente" id="butSig" />
+			<input type="button" value="Finalizar" id="butFin" />
+			
 		</div>
+		<footer> 
+			<p>Martin Caputti Legajo 26039</p>		
+		</footer>
 
 		<script  src="js/tp.js" ></script>
 	</body>
+	
 </html>
 
 
