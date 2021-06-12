@@ -5,6 +5,8 @@ body{
 	padding-right:16%;
 	font-size: 22px;
 	font-family:  "Times New Roman", serif;
+	/*para que no sea tan abrupto el cambio a oscuro*/
+	transition: background-color 0.6s ease, color 0.2s ease;
 }
 
 h1{
@@ -40,12 +42,18 @@ input[type=button] {
 	font-size: 30px;
 	margin: 20px 10px 10px 0px;
 	transition-duration: 0.2s;
+	border-radius: 5%
 }
 
 input[type=button]:hover{
 	background-color: white;
 	color:  #6073bf;
 	border: 2px solid #e8e8e8;
+}
+
+#butPun{
+	display: none;
+
 }
 
 
@@ -55,8 +63,7 @@ input[type=button]:hover{
 	font-size: 110%;
 }
 
-.datosUs{
-	color:#222222;
+#sobreUs{
 	font-weight: bold;
 }
 
@@ -102,23 +109,28 @@ div#facs{
 }
 
 
-.opciones .CG:checked +label ,.opciones .CG + label:hover {
-	text-shadow: 0px 0px 3px #222222;
+.opciones .CG:checked +label ,.opciones .CG +label:hover {
+	text-shadow: 0px 0px 3px #FDE311;
+	color: #292929;
+	font-weight: bolder;
 }
 
 .opciones .manhattan:checked +label ,.opciones .manhattan +label:hover{
 	text-shadow: 0px 0px 3px #00ddff;
+	font-weight: bolder;
 }
 
 .opciones .MujerMaravilla:checked +label ,.opciones .MujerMaravilla +label:hover{
-	color:#BFA135;
+	color:#ad9231;
 	text-shadow: 0px 0px 6px #DE0405 , 0px 0px 1px black;
+	font-weight: bolder;
 }
 
 
 .opciones .Harley:checked +label ,.opciones .Harley +label:hover{
 	color: #1374f2;
 	text-shadow:  0px 0px 6px #FF0000;
+	font-weight: bolder;
 }
 
 /*Estilos select */ 
@@ -154,3 +166,101 @@ select.pregS{
 input[type="checkbox"]:checked{
   box-shadow: 0 0 0 3px black;
 }
+
+/* Modo oscuro*/
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+
+/* slider*/
+.switch {
+  position: relative;
+  float: right;
+  display: inline-block;
+  width: 90px;
+  height: 34px;
+}
+
+/*escondo el cuadradito del tilde del checkbox*/
+.switch input {display:none;}
+
+/* forma redonda */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 100%;}
+
+
+/*El circulito*/ 
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* Despues de "tildarlo"*/
+input:checked + .slider {
+  background-color: white;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(55px);
+  -ms-transform: translateX(55px);
+  transform: translateX(55px);
+  background-color: black;
+}
+
+/*Para el mensaje dentro del switch*/
+#darkOn
+{
+  display: none;
+  color: black ;
+}
+
+#darkOn, #darkOff
+{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 51%;
+  font-size: 14px;
+}
+#darkOff
+{
+	color: white ;
+}
+
+input:checked+ .slider #darkOn
+{display: block;}
+
+input:checked + .slider #darkOff
+{display: none;}
+
+
+
+

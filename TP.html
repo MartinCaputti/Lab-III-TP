@@ -9,12 +9,18 @@
 	</head>
 	<body>
 		<h1>DC Super Trivia </h1>
+		<label class="switch">
+ 				<input type="checkbox" id="togBtn">
+ 				<span class="slider round">
+	  				<span id="darkOn">Luz</span>
+	  				<span id="darkOff">Dark</span>
+ 				</span>
+		</label>
+		
 		<div id="sobreUs">
-			<p class="datosUs"><label>Nombre del participante : <input type="text" id="boxUs" name="us" value="EJ:Edward Nygma"  /></label> </p>
-			
+			<label>Nombre del participante : <input type="text" id="boxUs" name="us" placeholder="EJ:Edward Nygma"  /></label> 
 			<!--si no ingresan nombre-->
 			<div id="nomError"></div>
-
 			<input type="button" value="Comenzar" id="butIn"/>
 		</div>
 
@@ -28,19 +34,19 @@
 					
 					<div class = "opciones">
 						<div>
-							<input type="radio"  id="preg1JG" class="CG" value="James 'Jim' Gordon"/>
-							<label for="preg1JG">James 'Jim' Gordon </label> 
+							<input type="radio"  name="preg1" id="preg1JG" class="CG" value="James 'Jim' Gordon"/>
+							<label for="preg1JG">James 'Jim' Gordon </label>
 						</div>	
 						<div>
-							<input type="radio"  id="preg1BA" class="CG" value="Barry Allen"/>
+							<input type="radio" name="preg1" id="preg1BA" class="CG" value="Barry Allen"/>
 							<label for="preg1BA">Barry Allen </label>
 						</div>
 						<div>
-							<input type="radio"  id="preg1OC" class="CG" value="Oswald Cobblepot"/>
+							<input type="radio" name="preg1" id="preg1OC" class="CG" value="Oswald Cobblepot"/>
 							<label for="preg1OC">Oswald Cobblepot </label>	
 						</div>
 						<div>
-							<input type="radio"  id="preg1AM" class="CG" value="Alex J. Murphy"/>
+							<input type="radio" name="preg1" id="preg1AM" class="CG" value="Alex J. Murphy"/>
 							<label for="preg1AM">Alex J. Murphy</label>
 						</div>
 					</div>
@@ -67,7 +73,7 @@
 				</div>
 
 				<div class="pregunta"><p>¿Quien es 'The Flash'?</p> 
-					<img src="imagenes/TheFlash.gif"
+					<img src="imagenes/TheFlash2.jpg"
 					alt="run .... run  "
 				    title="My nombre es ... y soy el hombre mas rapido">
 					<div class="opciones">
@@ -331,6 +337,7 @@
 
 			<input type="button" value="Siguiente" id="butSig" />
 			<input type="button" value="Finalizar" id="butFin" />
+			<input type="button" value="Puntuacion" id="butPun" />
 			
 		</div>
 		<footer> 

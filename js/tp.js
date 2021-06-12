@@ -91,7 +91,7 @@ $("#butIn").click(function(){
 	
 	nombre = $("#boxUs").val();
 	//Si no completan el nombre sale un mensaje de advertencia (y el cuestionario se esconde en caso que borraran el nombre)  
-	if(nombre == "" || nombre == "EJ:Edward Nygma"){
+	if(nombre == ""){
 		$("#nomError").html("Forastero identificate!" + "<br/>" + "<br/>" );
 		$("#cuestionario").hide();
 		return false;
@@ -259,11 +259,31 @@ $("#butFin").click(function(){
 	//Y lo muestro en la pagina 
 	$("#puntuacion").html("Contesto bien " + puntuacion+" de " + arrayPreguntas.length +" preguntas <br> " + msj);
 	
+	//Cambio el boton para que no puedan responder de vuelta 
+	$("#butPun").show();
+	$("#butFin").hide();
+
+	//Ademas de que no puedan cambiar el nombre
+	document.getElementById("boxUs").disabled = true;
 
 });
 
+$("#butPun").click(function(){
+	pagina = mostrarPagina(4,0);
+	botAntSig();
+});
 
-//CAmbiar "finalizar" por "puntuacion"
+
+
+
+//Modo oscuro 
+/*Se activa cuando el checkbox/slider cambia de estado*/
+$("#togBtn").on('change', function() {
+	var body = document.body;
+	/*alterna entre el color original y el oscuro de todo el body */
+	body.classList.toggle("dark-mode");
+});
+
 
 //Agregar tres preguntas mas 
 
