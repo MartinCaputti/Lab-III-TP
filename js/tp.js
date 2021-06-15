@@ -1,27 +1,23 @@
 "use strict"
 
 
-//Variable para saber el nombre , para poder comenzar y finalizar el cuestionario 
-var nombre ="";
-
 //Variable para saber en que pagina del cuestionario estoy situado 
 var pagina = 0; 
 //Array para recorrer las paginas del cuestionario
 var arrayPaginas = document.getElementsByClassName("pagina");
 
 //creo una funcion que muestra la pagina del formulario que estoy para no repetir tanto el codigo 
-//Recibe la pagina actual y un numero que indica cuanto quiero desplazarme 
-function mostrarPagina(numeroDeLaPagina,num){
+//Recibe la pagina donde quiero posicionarme 
+function mostrarPagina(numeroDeLaPagina){
 	//Oculto la pagina actual 
   	arrayPaginas[pagina].style.display = "none";
-  	//Sumo (o resto si es negativo) la  pagina en la que estoy 
-  	numeroDeLaPagina = numeroDeLaPagina + (num) ;
   	//Muestro la nueva pagina actual  
   	arrayPaginas[numeroDeLaPagina].style.display = "block";
   	//Vuelvo a la posicion de la pagina inicial para no tener que subir en cada pagina para contestar 
   	window.scrollTo(0, 0);
   	//Devuelvo el nuevo valor del numero de pagina 
   	return numeroDeLaPagina;
+  	//otra opcion era ya poner el "pagina = numeroDeLaPagina" y no devolver nada 
 }
 
 //Funcion para la visibilidad de los botones Anterior y siguiente 
@@ -39,44 +35,90 @@ function botAntSig(){
 	 		$("#butSig").show();
 	}
 
-	//Si es la ultima , se oculta el boton siguiente y se muestra el anterior
-	if(pagina== arrayPaginas.length-1){
+	//Si es la ultima pagina de preguntas o la pagina de puntuacion (ultima de todas) , se oculta el boton siguiente y se muestra el anterior
+	if(pagina== arrayPaginas.length-2 || pagina== arrayPaginas.length-1 ){
 	 		$("#butSig").hide();
 	 		$("#butAnt").show();
 	}
 }
 
-
-
 //cree un par de funciones para no repetir codigo al finalizar 
 
-function paraRadio (id){
-	//Comprueba si el radio button esta seleccionado 
-	if(id.prop("checked")){
+function paraRadio2 (clase,indCorrecta){
+
+	//creo una coleccion con todas las respuestas de la pregunta
+	var recorriendo = clase;
+	//Compruebo si el radio button correcto esta seleccionado 
+	if(recorriendo.eq(indCorrecta).prop("checked")){
 		//De ser asi suma un punto y pone el fondo en verde (El parent() usa Traversing del padre directo del radio)
 		puntuacion++;
-		id.parent().css( "background", "#99ff82" );
-		//de lo contrario pone el fondo rojo
+		recorriendo.eq(indCorrecta).parent().css( "background", "#99ff82" );
+	//de lo contrario
 	}else{
-		id.parent().css( "background", "#ff8282" );
+		//recorro las opciones
+		for (var i = 0  ; i < recorriendo.length; i++) {
+			//checkeo si hay alguna incorrectamente tildada 
+			if (recorriendo.eq(i).prop("checked")) {
+				//Y la marco en rojo
+				recorriendo.eq(i).parent().css("background", "#ff8282");
+			} 
+		}
+		//Marco en naranja la que deberia haber seleccionado
+		recorriendo.eq(indCorrecta).parent().css( "background", "orange" );
 	}
 }
 
-//paso el id y donde esta la respuesta correcta 
+//paso el id del select y donde esta la respuesta correcta 
 function paraSelect(id,posicion){
 	//si coincide ,color verde para el fondo y un punto mas 
 	if(id.selectedIndex == posicion){
 		puntuacion++;
-		id.style.backgroundColor = "#99ff82";
+		//id.style.backgroundColor = "#99ff82";
 		id.options[posicion].style.color = "blue"; 
+		id.options[posicion].style.backgroundColor = "#99ff82"; 
 		//sino , color rojo para la respuesta correcta 
 	}else{
 		//id.style.backgroundColor = "#ff8282";
-		id.options[posicion].style.backgroundColor = "#ff8282"; 
+		id.options[id.selectedIndex].style.backgroundColor = "#ff8282"; 
+		id.options[posicion].style.backgroundColor = "orange"; 
+		id.options[posicion].style.color = "blue"; 
 	} 
 }
 
+//Paso una coleccion con todos los checkbox de la pregunta y una coleccion solo con las respuestas ; 
+function paraCheckBox(todasRespuestas , respuestasCorrectas){
+	var bien = true;
+	var i ;
+	var totalBien = respuestasCorrectas.length; // cuantas respuestas correctas hay en total 
+	//Recorro todas las respuestas
+	for ( i = 0 ; i < todasRespuestas.length; i++) {
+		//La que este tiladada la coloreo en rojo 
+		if(todasRespuestas.eq(i).prop("checked")){ 
+			todasRespuestas.eq(i).parent().css( "background", "#ff8282" );
+			totalBien--;	
+		}
+	}
 
+	//veo las respuestas correctas
+	for ( i = 0 ; i < respuestasCorrectas.length; i++) {
+		//En la coleccion de todas las respuestas me ubico en las correctas
+		if(!todasRespuestas.eq(respuestasCorrectas[i]).prop("checked")){
+			//Si alguna no esta seleccionada , la marco como respuesta correcta no seleccionada 
+			todasRespuestas.eq(respuestasCorrectas[i]).parent().css( "background", "orange" );
+			//y la pregunta esta mal
+			bien = false; 
+		}else{
+			//La que este seleccionada la coloreo en verde ,y sobreescribo el rojo anterior 
+			todasRespuestas.eq(respuestasCorrectas[i]).parent().css( "background", "#99ff82" );
+		}
+	}
+
+	//Si todas las correctas estan seleccionadas y la cantidad seleccionada es la cantidad de respuestas, esta bien contestada y se suma un punto
+	//El total bien contempla el caso que me marquen todas las respuestas
+	if(bien && totalBien==0){
+		puntuacion++;
+	}
+}
 
 
 //Al seleccionar el cuadro de texto del usuario se borra le nombre para ingresar uno nuevo
@@ -89,9 +131,8 @@ $("#boxUs").focus(function() {
 //para que funcione el boton comenzar:
 $("#butIn").click(function(){
 	
-	nombre = $("#boxUs").val();
 	//Si no completan el nombre sale un mensaje de advertencia (y el cuestionario se esconde en caso que borraran el nombre)  
-	if(nombre == ""){
+	if($("#boxUs").val() == ""){
 		$("#nomError").html("Forastero identificate!" + "<br/>" + "<br/>" );
 		$("#cuestionario").hide();
 		return false;
@@ -103,46 +144,50 @@ $("#butIn").click(function(){
 	$("#cuestionario").show();
 	$("footer").show();
 	//En la primer pagina
-	mostrarPagina(pagina,0);
+	mostrarPagina(pagina);
 	botAntSig();
 });
 
-
 $("#butUno").click(function(){
-	pagina = mostrarPagina (0,0);
+	pagina = mostrarPagina (0);
 	//$("#butAnt").hide();
 	botAntSig();
 });
 
 $("#butDos").click(function(){
-	pagina = mostrarPagina (1,0);	
+	pagina = mostrarPagina (1);	
 	botAntSig();
 });
 
 $("#butTres").click(function(){
-	pagina = mostrarPagina (2,0);
+	pagina = mostrarPagina (2);
 	$("#butAnt").hide();
 	botAntSig();
 });
 
 $("#butCuatro").click(function(){
-	pagina = mostrarPagina (3,0);
+	pagina = mostrarPagina (3);
 	$("#butAnt").hide();
 	botAntSig();
 });
 
+$("#butCinco").click(function(){
+	pagina = mostrarPagina (4);
+	$("#butAnt").hide();
+	botAntSig();
+});
 
 $("#butSig").click(function(){
 	//Si la pagina es anterior a la ultima , paso una pagina 
 	if(pagina < arrayPaginas.length-1){
-		pagina=  mostrarPagina(pagina,1);		
+		pagina=  mostrarPagina(pagina+1);		
 	}
 	botAntSig();
 });
 
 $("#butAnt").click(function(){
 	if(pagina > 0){
-		pagina = mostrarPagina(pagina,-1);
+		pagina = mostrarPagina(pagina-1);
 	}
 	botAntSig();	
 });
@@ -160,100 +205,39 @@ $("#butFin").click(function(){
 	//Agrego un mensaje segun la puntuacion 
 	var msj ="";
 
-	//arrayPaginas[pagina].style.display = "none";
-	pagina = mostrarPagina(4,0);
+	pagina = mostrarPagina(arrayPaginas.length-1);
 	botAntSig();
 
 	//Checkeo en cada pregunta si contesto bien se suma un punto y se colorea en verde
-	//Sino se marca en rojo.
+	//Sino se marca en naranja y si el usuario selecciono alguna mal en rojo la opcion erronea .
 	//De ser posible uso las funciones que defini previamente
 
-	//if(document.getElementById("preg1JG").checked){
-	paraRadio($("#preg1JG"));
+	paraRadio2($(".CG"),0);
 	paraSelect(document.getElementById("SuperCiudad"),"4");
-	//$("#metro").css("background", "#99ff82");
 
-	//Es un if mas grande porque para que este bien la respuesta tiene que seleccionar varias respuestas correctas en simultaneo 
-	if(document.getElementById("cbJL1").checked && document.getElementById("cbJL4").checked){
-		puntuacion++;
-		$("#cbJL1").parent().css( "background", "#99ff82" );
-		$("#cbJL4").parent().css( "background", "#99ff82" );
-	}else{
-		$("#cbJL1").parent().css( "background", "#ff8282" );
-		$("#cbJL4").parent().css( "background", "#ff8282" );
-	}
+	/*Como en los checkbox se necesitan varias selecciones en simultaneo y varia la dimension segun cada checkbox uso una coleccion 
+	esta coleccion la voy redefiniendo en cada checkbox con las respuestas correctas de cada pregunta */
+	var correctas = [];
+	paraCheckBox($(".cbFlash") , correctas = [0,3] );
 
-	paraRadio($("#pregDM3"));	
+	paraRadio2($(".manhattan"),2);	
 	paraSelect(document.getElementById("superLogo"),"8");
+	paraCheckBox($(".pJT"),correctas = [0,2,4]); 
 
-
-	if(document.getElementById("cbJT1").checked && document.getElementById("cbJT3").checked && document.getElementById("cbJT5").checked){
-		puntuacion++;
-		$("#cbJT1").parent().css( "background", "#99ff82" );
-		$("#cbJT3").parent().css( "background", "#99ff82" );
-		$("#cbJT5").parent().css( "background", "#99ff82" );
-
-	}else{
-		$("#cbJT1").parent().css( "background", "#ff8282" );
-		$("#cbJT3").parent().css( "background", "#ff8282" );
-		$("#cbJT5").parent().css( "background", "#ff8282" );
-	}
-
-	paraRadio($("#pregMM3"));	
+	paraRadio2($(".MujerMaravilla"),2);	
 	paraSelect(document.getElementById("victorStone"),"4");
+	paraCheckBox($(".cbES"),correctas=[0,5,7] );
 
-	if(document.getElementById("cbES1").checked && document.getElementById("cbES6").checked && document.getElementById("cbES8").checked){
-		puntuacion++;
-		$("#cbES1").parent().css( "background", "#99ff82" );
-		$("#cbES6").parent().css( "background", "#99ff82" );
-		$("#cbES8").parent().css( "background", "#99ff82" );
-
-	}else{
-		$("#cbES1").parent().css( "background", "#ff8282" );
-		$("#cbES6").parent().css( "background", "#ff8282" );
-		$("#cbES8").parent().css( "background", "#ff8282" );
-	}
-
-	paraRadio($("#pregHQ4"));
+	paraRadio2($(".Harley"),3);
 	paraSelect(document.getElementById("victorFries"),"6");
-
-	if(document.getElementById("cbVG1").checked && document.getElementById("cbVG2").checked && document.getElementById("cbVG3").checked
-		&& document.getElementById("cbVG4").checked && document.getElementById("cbVG5").checked
-		&& document.getElementById("cbVG6").checked && document.getElementById("cbVG7").checked
-		&& document.getElementById("cbVG8").checked && document.getElementById("cbVG9").checked
-		&& document.getElementById("cbVG10").checked ){
-		puntuacion++;
-		$("#cbVG1").parent().css( "background", "#99ff82" );
-		$("#cbVG2").parent().css( "background", "#99ff82" );
-		$("#cbVG3").parent().css( "background", "#99ff82" );
-		$("#cbVG4").parent().css( "background", "#99ff82" );
-		$("#cbVG5").parent().css( "background", "#99ff82" );
-		$("#cbVG6").parent().css( "background", "#99ff82" );
-		$("#cbVG7").parent().css( "background", "#99ff82" );
-		$("#cbVG8").parent().css( "background", "#99ff82" );
-		$("#cbVG9").parent().css( "background", "#99ff82" );
-		$("#cbVG10").parent().css( "background", "#99ff82" );
-		
-
-	}else{
-		$("#cbVG1").parent().css( "background", "#ff8282" );
-		$("#cbVG2").parent().css( "background", "#ff8282" );
-		$("#cbVG3").parent().css( "background", "#ff8282" );
-		$("#cbVG4").parent().css( "background", "#ff8282" );
-		$("#cbVG5").parent().css( "background", "#ff8282" );
-		$("#cbVG6").parent().css( "background", "#ff8282" );
-		$("#cbVG7").parent().css( "background", "#ff8282" );
-		$("#cbVG8").parent().css( "background", "#ff8282" );
-		$("#cbVG9").parent().css( "background", "#ff8282" );
-		$("#cbVG10").parent().css( "background", "#ff8282" );
-	}
+	paraCheckBox($(".villanosG"), correctas=[0,1,2,3,4,5,6,7,8,9] );
 
 
 	//Luego de saber la puntuacion total defino el msj 
 	if( (arrayPreguntas.length/puntuacion) >2 ){
-		msj="ouch " + nombre + " :/ ";
+		msj="ouch " + $("#boxUs").val() + " :/ ";
 	}else{
-		msj="Felicidades " + nombre +" eres una persona de cultura ;)";
+		msj="Felicidades " + $("#boxUs").val() +" eres una persona de cultura ;)";
 	}
 
 	//Y lo muestro en la pagina 
@@ -269,7 +253,7 @@ $("#butFin").click(function(){
 });
 
 $("#butPun").click(function(){
-	pagina = mostrarPagina(4,0);
+	pagina = mostrarPagina(arrayPaginas.length-1);
 	botAntSig();
 });
 

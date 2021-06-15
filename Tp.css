@@ -51,6 +51,21 @@ input[type=button]:hover{
 	border: 2px solid #e8e8e8;
 }
 
+
+#butFin , #butPun{
+	background-color: #037e37;
+	color:  #332d2d;
+	border: 2px solid #70f01f;
+}
+
+#butFin:hover ,#butPun:hover{
+	background-color: #332d2d;
+	color:  #037e37 ;
+	border: 2px solid #70f01f;
+}
+
+
+
 #butPun{
 	display: none;
 
