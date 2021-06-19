@@ -83,7 +83,7 @@ input[type=button]:hover{
 }
 
 img{
-	max-width: 100%;
+	width: 100%;
 	max-height: 650px;
 	margin-bottom: 10px;
 }
@@ -277,5 +277,32 @@ input:checked + .slider #darkOff
 {display: none;}
 
 
+/*Respuestas con imagenes*/
+
+/*escondo los circulitos de los radios*/
+input.Oscars ,input.dosCaras {
+	display: none;
+}
+
+/*para darle estilo a las imagenes */
+.opciones label img{
+	width: 20%;
+	margin: 10px 2.1% 0 ;
+	max-height: 160px;
+}
+
+.opciones label img:hover {
+	box-shadow:0 0 7px 5px silver;
+} 
+
+
+.opciones .Oscars:checked +label img {
+	box-shadow: 0 0 7px 5px gold;
+}
+
+
+.opciones .dosCaras:checked +label img {
+	box-shadow: 0px 0px 7px 5px #4b15b0 ;
+}
 
 

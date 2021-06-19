@@ -68,6 +68,27 @@ function paraRadio2 (clase,indCorrecta){
 	}
 }
 
+/*Como tengo imagenes arme diferente el Html , asi que coloreo de otra forma*/
+function paraRadioImg (clase,indCorrecta){
+
+	//Para marcar utilizo el mismo metodo que el radio anterior
+	var recorriendo = clase;
+	if(recorriendo.eq(indCorrecta).prop("checked")){
+		//El traversing cambio , ahora busco la imagen que esta dentro del label (elemento hijo del elemento siguiente)
+		puntuacion++;
+		recorriendo.eq(indCorrecta).next().children().css( "box-shadow", "0 0 7px 5px #99ff82" );
+	}else{
+		for (var i = 0  ; i < recorriendo.length; i++) {
+			if (recorriendo.eq(i).prop("checked")) {
+				recorriendo.eq(i).next().children().css( "box-shadow", "0 0 7px 5px #ff8282");
+			} 
+		}
+		recorriendo.eq(indCorrecta).next().children().css(  "box-shadow", "0 0 7px 5px orange" );
+	}
+}
+
+
+
 //paso el id del select y donde esta la respuesta correcta 
 function paraSelect(id,posicion){
 	//si coincide ,color verde para el fondo y un punto mas 
@@ -232,6 +253,9 @@ $("#butFin").click(function(){
 	paraSelect(document.getElementById("victorFries"),"6");
 	paraCheckBox($(".villanosG"), correctas=[0,1,2,3,4,5,6,7,8,9] );
 
+	paraRadioImg($(".Oscars"),1);
+	paraRadioImg($(".dosCaras"),3);
+
 
 	//Luego de saber la puntuacion total defino el msj 
 	if( (arrayPreguntas.length/puntuacion) >2 ){
@@ -269,6 +293,9 @@ $("#togBtn").on('change', function() {
 });
 
 
-//Agregar tres preguntas mas 
+//Agregar una pregunta con imagenes mas 
 
-//Unir con radios
+
+
+
+
