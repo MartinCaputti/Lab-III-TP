@@ -51,7 +51,6 @@ input[type=button]:hover{
 	border: 2px solid #e8e8e8;
 }
 
-
 #butFin , #butPun{
 	background-color: #037e37;
 	color:  #332d2d;
@@ -64,13 +63,10 @@ input[type=button]:hover{
 	border: 2px solid #70f01f;
 }
 
-
-
 #butPun{
 	display: none;
 
 }
-
 
 #nomError {
 	color: red;
@@ -88,7 +84,6 @@ img{
 	margin-bottom: 10px;
 }
 
-
 .pregunta{
 	margin-bottom: 50px;
 }
@@ -102,11 +97,9 @@ div#cuestionario , footer {
 	display:none;
 }
 
-
 .pagina{
 	display:none;
 }
-
 
 div#facs{
 	text-shadow: 0 0 3px gold, 0 0 5px black;
@@ -177,18 +170,21 @@ select.pregS{
 }
 
 /*Estilo CheckBox*/
+/* white space para que al cambiar el tamaño de la ventana se desplace el checkbox con su respectiva label 
+y no quede un cuadrado arriba y el label debajo  */
+.opciones label {
+	white-space: nowrap;
+}
 
 input[type="checkbox"]:checked{
   box-shadow: 0 0 0 3px black;
 }
 
 /* Modo oscuro*/
-
 .dark-mode {
   background-color: black;
   color: white;
 }
-
 
 /* slider*/
 .switch {
@@ -242,7 +238,7 @@ input:checked + .slider {
 input:focus + .slider {
   box-shadow: 0 0 1px #2196F3;
 }
-
+/* el traslateX para mover el circulito horizontalmente*/
 input:checked + .slider:before {
   -webkit-transform: translateX(55px);
   -ms-transform: translateX(55px);
@@ -251,30 +247,29 @@ input:checked + .slider:before {
 }
 
 /*Para el mensaje dentro del switch*/
-#darkOn
-{
+#darkOn{
   display: none;
   color: black ;
 }
 
-#darkOn, #darkOff
-{
+#darkOn, #darkOff{
   position: absolute;
   transform: translate(-50%,-50%);
   top: 50%;
   left: 51%;
   font-size: 14px;
 }
-#darkOff
-{
+#darkOff{
 	color: white ;
 }
 
-input:checked+ .slider #darkOn
-{display: block;}
+input:checked+ .slider #darkOn{
+	display: block;
+}
 
-input:checked + .slider #darkOff
-{display: none;}
+input:checked + .slider #darkOff{
+	display: none;
+}
 
 
 /*Respuestas con imagenes*/
@@ -295,11 +290,9 @@ input.Oscars ,input.dosCaras {
 	box-shadow:0 0 7px 5px silver;
 } 
 
-
 .opciones .Oscars:checked +label img {
 	box-shadow: 0 0 7px 5px gold;
 }
-
 
 .opciones .dosCaras:checked +label img {
 	box-shadow: 0px 0px 7px 5px #4b15b0 ;

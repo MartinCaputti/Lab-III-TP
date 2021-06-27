@@ -87,22 +87,21 @@ function paraRadioImg (clase,indCorrecta){
 	}
 }
 
-
-
 //paso el id del select y donde esta la respuesta correcta 
 function paraSelect(id,posicion){
 	//si coincide ,color verde para el fondo y un punto mas 
 	if(id.selectedIndex == posicion){
 		puntuacion++;
-		//id.style.backgroundColor = "#99ff82";
 		id.options[posicion].style.color = "blue"; 
 		id.options[posicion].style.backgroundColor = "#99ff82"; 
-		//sino , color rojo para la respuesta correcta 
+		//Cambio de color el borde para que el usuario sepa si contesto bien o mal sin tener que expandir el select 
+		id.style.border = "5px solid #99ff82";
+	//sino , color rojo para la respuesta correcta 
 	}else{
-		//id.style.backgroundColor = "#ff8282";
 		id.options[id.selectedIndex].style.backgroundColor = "#ff8282"; 
 		id.options[posicion].style.backgroundColor = "orange"; 
 		id.options[posicion].style.color = "blue"; 
+		id.style.border = "5px solid #ff8282";
 	} 
 }
 
@@ -140,7 +139,6 @@ function paraCheckBox(todasRespuestas , respuestasCorrectas){
 		puntuacion++;
 	}
 }
-
 
 //Al seleccionar el cuadro de texto del usuario se borra le nombre para ingresar uno nuevo
 $("#boxUs").focus(function() {
@@ -256,7 +254,6 @@ $("#butFin").click(function(){
 	paraRadioImg($(".Oscars"),1);
 	paraRadioImg($(".dosCaras"),3);
 
-
 	//Luego de saber la puntuacion total defino el msj 
 	if( (arrayPreguntas.length/puntuacion) >2 ){
 		msj="ouch " + $("#boxUs").val() + " :/ ";
@@ -265,7 +262,7 @@ $("#butFin").click(function(){
 	}
 
 	//Y lo muestro en la pagina 
-	$("#puntuacion").html("Contesto bien " + puntuacion+" de " + arrayPreguntas.length +" preguntas <br> " + msj);
+	$("#puntuacion").html("Contesto bien " + puntuacion+" de " + arrayPreguntas.length +" preguntas <br> " + msj );
 	
 	//Cambio el boton para que no puedan responder de vuelta 
 	$("#butPun").show();
@@ -280,9 +277,6 @@ $("#butPun").click(function(){
 	pagina = mostrarPagina(arrayPaginas.length-1);
 	botAntSig();
 });
-
-
-
 
 //Modo oscuro 
 /*Se activa cuando el checkbox/slider cambia de estado*/
